@@ -1,0 +1,90 @@
+[project]
+name = "InsightGenius"
+requires-python = ">=3.12"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 130
+indent-width = 4
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".idea",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "docs",
+    "logs",
+    "node_modules",
+    "site-packages",
+    "tests",
+    "venv",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+extend-select = [
+    "ANN",      # flake8-annotations
+    "ARG",      # flake8-unused-arguments
+    "ASYNC",    # flake8-async
+    "D",        # pydocstyle
+    "E",        # pycodestyle errors
+    "I",        # isort
+    "ISC",      # flake8-implicit-str-concat
+    "N",        # pep8-naming
+    "PL",       # Pylint
+    "PTH",      # flake8-use-pathlib
+    "PYI",      # flake8-pyi
+    "Q",        # flake8-quotes
+    "RET",      # flake8-return
+    "RET",      # flake8-return
+    "RUF",      # Ruff-specific rules
+    "T20",      # flake8-print
+    "TCH",      # flake8-type-checking
+    "UP",       # pyupgrade
+    "W",        # pycodestyle warning
+]
+
+ignore = [
+    "ANN101", # This rule is commonly disabled because type checkers can infer this type without annotation.
+    "ISC001", # The following rule may cause conflicts when used with the formatter.
+]
+
+[tool.ruff.lint.per-file-ignores]
+".\\install_requirements.py" = ["T201"] # print statements are required in this file
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.isort]
+profile = "google"

@@ -1,0 +1,94 @@
+site_name: RAG
+
+# Optionally, configure navigation
+nav:
+  - Startseite: index.md
+  - Installation und Deployment: installation.md
+  - Installation von llama-cpp-python: llama-cpp-python.md
+  - Konfiguration der Anwendung: settings_loader.md
+  - Flask-App: app.md
+  - API:
+      - Authentifizierung: api/auth.md
+      - Ausnahmebehandlung: api/exception_handler.md
+      - API-Endpunkte:
+          - Authentifizierung: api/routes/auth_routes.md
+          - Testverbindung: api/routes/greeting_routes.md
+          - Generierte Response: api/routes/model_response_routes.md
+  - Datenbank: db.md
+  - LLM-Modell:
+      - LLM Model Loader: model/model_loader.md
+      - LLM Agent: model/agent.md
+      - Prompt Builder für Phi-4: model/prompt_builder_for_phi_4.md
+      - Prompt Builder für für Suche-Nach-Antwort-Im-Kontext Agent: model/prompt_builder_for_search_answer_in_context_agent.md
+  - Preprocessing:
+      - Text Preprocessor: preprocess/text_preprocessor.md
+      - Text Konverter: preprocess/vector_creator.md
+      - Keywords Generator: preprocess/keywords_generator.md
+  - Test Environment:
+      - LangSmith Client: test_environment/langsmith_client.md
+      - Automatische Tests: test_environment/automated_question_testing.md
+  - RAG-Pipeline: rag.md
+  - Unit Tests: unit_tests.md
+  - Datenbank Backup: database_backup.md
+  - MkDocs Build-Prozess: mkdocs_build.md
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  language: de
+  features:
+    - content.code.copy
+    - navigation.top
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [ RAG ]
+          options:
+            docstring_style: google
+            show_bases: true
+            show_source: true
+            members_order: source
+            show_symbol_type_heading: true
+            filters: [ ]
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+      manual: false
